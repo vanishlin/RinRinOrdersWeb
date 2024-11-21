@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>りんりんOrders-ログイン</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body style=background-color:white>
+<div class="background" id="background" style="z-index: -1;"></div>
+
+<div class="wrapper">
+<!-- ヘッダー -->
+	<header class="header">
+	<nav class="nav">
+			<h4>テーブルNO：01</h4>
+			<div class="login-title">りんりんOrdersの利用、ありがとうございます。</div>
+			
+		</nav>
+	</header>
+	<!-- ヘッダー ここまで -->
+	<!-- メイン -->
+
+	<div class="mainview">
+	<form class="login-form" action="LoginServlet" method="post">
+	<div class="loginitem-member">
+	<p>会員の方：</p>	
+	<input type="text" placeholder="会員番号（電話番号）" name="userTel" class="input">
+	<span id="numberinput"><input type="number" id="month" name="month" min="1" max="12" value="1">月&nbsp&nbsp<input type="number" id="day" name="day" min="1" max="31" value="1">日</span>
+	</div>
+	<div class="loginitem-notmember">
+	<span>
+		<p>人数:</p>
+ 		<input type="button" id="peopleMinus" value = "-" onclick="peopleCnt(-1)">
+		<input type="number" id="people" name="people" max="6" value="1">
+		<input type="button" id="peoplePlus" value = "+" onclick="peopleCnt(1)">
+	</span>
+	<span>
+	
+	<p>カロリー計算：</p>
+	<input type="checkbox" name="kcal"></span>		
+	</div>
+	<button class="button-confirm">注文開始→</button>
+	</form>
+	
+	</div>	
+	<!-- メイン ここまで -->
+	<!-- フッター -->
+	<footer class="footer">
+        <p>&copy;Copyright L&M Design. All rights reserved.</p>
+	</footer>
+	<!-- フッター ここまで -->
+</div>
+<script>
+const imageCount = 10; 
+const rowCount = 5;
+const images = ['images/nika.png', 'images/nebi.png', 'images/nsamon.png','images/gikura.png','images/ntamago.png','images/mmagutaku.png']; 
+
+const background = document.getElementById('background');
+for (let i = 0; i < rowCount; i++) {
+    const row = document.createElement('div');
+    row.classList.add('background-row');
+    background.appendChild(row);
+
+    const totalImages = imageCount * 2; 
+    for (let j = 0; j < totalImages; j++) {
+        const img = document.createElement('img');
+        img.src = images[Math.floor(Math.random() * images.length)];
+        img.classList.add('background-image');
+        row.appendChild(img);
+    }
+}
+
+const rows = document.querySelectorAll('.background-row');
+rows.forEach((row, index) => {
+    const animationDuration = 50 + Math.random() * 5; 
+    row.style.animationDuration = `${animationDuration}s`;
+});
+
+function peopleCnt(num){
+	const people = document.getElementById("people");
+	var val = Number(people.value);
+	val += num;
+	if(val < 1){
+		val = 1;
+	}else if(val > 10){
+		val = 10;
+		}
+	people.value = val;
+	
+}
+</script>
+</body>
+</html>

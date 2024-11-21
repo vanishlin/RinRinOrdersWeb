@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>りんりんOrders-Login</title>
+<link rel="stylesheet" href="css/cstyle.css">
+</head>
+<body class="locked" id="tableloginbody">
+<div class="wrapper">
+<div id="modalOverlay"></div>
+  <div id="passwordModal">
+    <h2>りんりんOrdersへようこそ！</h2>
+    <input type="password" id="passwordInput" placeholder="パスワード" />
+    <button onclick="checkPassword()">Login</button>
+    <p id="errorMsg" class="error"></p>
+  </div>
+
+  <!-- 页面内容 -->
+  <div id="content">
+    <h2>テーブルを選択して下さい</h2>
+    <h3>りんりんOrdersの利用ありがとうございます。</h3>
+    <div class="restaurant-map" id="restaurantMap"></div>
+
+    <form id="tableForm" action="LanguageServlet" method="post" style="display: none;">
+        <input type="hidden" id="tableNumber" name="tableNumber" value="">
+    </form>
+  </div>
+  
+  <div class="background" id="background" style="z-index: -1;"></div>
+  
+  
+	<!-- メイン ここまで -->
+	<!-- フッター -->
+	<footer class="footer">
+        <p>&copy;Copyright L&M Design. All rights reserved.</p>
+	</footer>
+	<!-- フッター ここまで -->
+</div>
+
+<script>
+	var tabeListString ="<%=tablelist%>";
+
+	const imageCount = 10; 
+	const rowCount = 5;
+	const images = ['images/nika.png', 'images/nebi.png', 'images/nsamon.png','images/gikura.png','images/ntamago.png','images/mmagutaku.png']; 
+	
+	const background = document.getElementById('background');
+	for (let i = 0; i < rowCount; i++) {
+	    const row = document.createElement('div');
+	    row.classList.add('background-row');
+	    background.appendChild(row);
+	
+	    const totalImages = imageCount * 2; 
+	    for (let j = 0; j < totalImages; j++) {
+	        const img = document.createElement('img');
+	        img.src = images[Math.floor(Math.random() * images.length)];
+	        img.classList.add('background-image');
+	        row.appendChild(img);
+	    }
+	}
+	
+	const rows = document.querySelectorAll('.background-row');
+	rows.forEach((row, index) => {
+	    const animationDuration = 50 + Math.random() * 5; 
+	    row.style.animationDuration = `${animationDuration}s`;
+	});
+</script>
+<script src="scripts/tableloginscript.js"></script>
+
+</body>
+</html>

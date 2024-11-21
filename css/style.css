@@ -1,0 +1,767 @@
+@charset "UTF-8";
+
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Yu Mincho', sans-serif;
+	text-align: center;
+/*    background-color: #e8e8e8;*/
+    
+}
+
+.loginbody{
+	background-image: 
+		url("../images/nebi.png");
+	background-repeat: repeat;
+	background-position: 0 0,50px 50px,100 px 100px ;
+	background-size: 25%;
+	
+}
+
+/*背景の動画*/
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.background-row {
+	display: flex;
+	position: relative;
+	white-space: nowrap; 
+	animation: moveBackground 10s linear infinite;
+}
+
+.background-row:nth-child(odd) {
+	animation-direction: reverse;
+}
+
+.background-image {
+	width: 250px;
+	object-fit: contain;
+}
+
+@keyframes moveBackground {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+/*背景の動画*/
+
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: center;
+}
+
+
+
+div {
+	border-radius: 10px;
+	margin: 5px;
+}
+
+p {
+	line-height: 1.6;
+}
+
+h4 {
+	margin: 2px 0;
+}
+
+a:link {
+	color: #d25833;
+}
+
+a:visited {
+	color: #d25833;
+}
+
+a:hover {
+	color: #e3937a;
+}
+
+a:active {
+	color: #ff6a3b;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* すべてのページに適用 - ヘッダー - */
+.logo {
+	margin: 50px 0 40px 0;
+	line-height: 0;
+	text-align: center;
+}
+
+.nav ul {
+	margin: 2px 0;
+	margin-top: 5px;
+}
+
+.nav li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 30px;
+}
+
+.nav a {
+	color: #090909;
+	padding: 0.3em 1.2em;
+	font-size: 25px;
+	border-radius: 0.5em;
+	background: #f2f2f3;
+	cursor: pointer;
+	border: 1px solid #f2f2f3;
+	transition: all 0.3s;
+	box-shadow: 5px 3px 3px 0px #c5c5c5, -5px -4px 8px 0px #ffffff;
+
+}
+
+.nav a:link {
+	color: #3c454d;
+	text-decoration: none;
+}
+
+.nav a:hover {
+	color: #7b8dac;
+	text-decoration: none;
+}
+
+.nav a:active {
+	color: #666;
+	box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+
+.login-form{
+	 --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  padding: 20px;
+  background: rgb(251, 244, 213);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  box-shadow: 7px 6px 12px 1px #dfdfdf, -9px -8px 60px #ffffff;
+}
+.login-tital{
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+.loginitem-member{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow:3px 2px 3px 0px #dfdfdf, -4px -2px 7px #ffffff;
+  background: rgb(249 229 175);
+  width: 100%;
+}
+.loginitem-member span {
+	margin: 15px 5px;
+}
+
+.loginitem-notmember{
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginitem-notmember p {
+	margin: 0;padding: 0;
+}
+
+  
+ .button-confirm{
+	 color: #090909;
+	padding: 0.3em 1.2em;
+	font-size: 16px;
+	border-radius: 0.5em;
+	background: #f2f2f3;
+	cursor: pointer;
+	border: 1px solid #f2f2f3;
+	transition: all 0.3s;
+	box-shadow: 4px 3px 3px 0px #c5c5c5, -4px -2px 10px 0px #ffffff;
+	 
+ }
+
+.button-confirm:hover {
+	color: #7b8dac;
+	text-decoration: none;
+}
+
+.button-confirm:active {
+	color: #666;
+	box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.numberinput{
+	width: 100%;
+}
+
+/****メニューページ****/
+
+.mainview {
+	width: 100%;
+	display: flex;
+	gap: 16px;
+
+	justify-content: center;
+
+}
+
+/*Menu table*/
+.menutable {
+	width: 80%;
+	height: 550px;
+	display: grid;
+	align-self: center;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+	background: #f2f2f3;
+	border-radius: 43px;
+	justify-items: center;
+    box-shadow: 4px 7px 20px #ded9d9, -10px -8px 60px #ffffff;
+	overflow-y: scroll;
+	opacity: 0.98;
+
+}
+
+.menutable::-webkit-scrollbar {
+	width: 5px;
+
+}
+
+.menutable::-webkit-scrollbar-thumb {
+	background-color: rgb(217, 189, 189, 0.3);
+}
+
+.menutable::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(196, 151, 151, 0.3);
+}
+
+/* itemsテーブル*/
+
+.items th,.items td {
+	padding: 8px;
+	border: 1px solid #bec2c7;
+	text-align: center;
+}
+
+.items th {
+	background-color: #dde2ea;
+	color: #3f5170;
+	vertical-align: top;
+}
+
+
+
+.menuside {
+	margin-right: 20px;
+	width: 20%;
+	height: 550px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: flex-start;
+	background: #f9eebc;
+	text-align: left;
+	box-shadow: 5px 3px 3px 0px #c5c5c5, -5px -4px 8px 0px #ffffff;
+}
+
+
+.menuside h3 {
+	margin-bottom: 0;
+	padding-left: 2%;
+	font-weight: 500;
+
+}
+
+
+.foodlist {
+	margin: 0 7px;
+	width: auto;
+	height: 460px;
+	background-color: rgb(251, 244, 213);
+	box-shadow: 4px 2px 3px 0px #c5c5c5;
+	overflow-y: scroll;
+}
+
+.foodlist a {
+	color: rgb(0, 0, 0);
+	padding: 0.2em 0.8em;
+	font-size: 12px;
+	border-radius: 0.5em;
+	background: #f2f2f3;
+	cursor: pointer;
+	border: .2px solid #f2f2f3;
+	transition: all 0.3s;
+	box-shadow: 2px 1px 1px 0px #c5c5c5, -2px -1px 5px 0px #ffffff;
+
+}
+
+.foodlist a:link {
+	color: #3c454d;
+	text-decoration: none;
+}
+
+.foodlist a:hover {
+	color: rgb(255, 0, 0);
+	text-decoration: none;
+}
+
+.foodlist a:active {
+	color: #666;
+	box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+
+.foodlist::-webkit-scrollbar {
+	width: 5px;
+
+}
+
+.foodlist::-webkit-scrollbar-thumb {
+	background-color: rgb(217, 189, 189, 0.3);
+}
+
+.foodlist::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(196, 151, 151, 0.3);
+}
+
+.menuside ul {
+	padding-left: 1%;
+	text-align: center;
+
+}
+
+.menuside li {
+	list-style-type: none;
+	padding-left: 1%;
+	text-align: left;
+
+
+}
+
+.menuside table {
+	width: 100%;
+}
+
+.info {
+	height: 30px;
+	text-align: center;
+}
+
+.info a {
+	color: #090909;
+	padding: 0.3em 1.2em;
+	font-size: 16px;
+	border-radius: 0.5em;
+	background: #f2f2f3;
+	cursor: pointer;
+	border: 1px solid #f2f2f3;
+	transition: all 0.3s;
+	box-shadow: 4px 3px 3px 0px #c5c5c5, -4px -2px 10px 0px #ffffff;
+
+}
+
+.info a:link {
+	color: #3c454d;
+	text-decoration: none;
+}
+
+.info a:hover {
+	color: #7b8dac;
+	text-decoration: none;
+}
+
+.info a:active {
+	color: #666;
+	box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+/****メニューページ****/
+
+
+
+
+
+/*Card---------------------*/
+.card {
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.card .img {
+	width: 80%;
+	height: 180px;
+	margin-top: 1.6em;
+	aspect-ratio: 1;
+	border-radius: 25px;
+	background: #f2f2f3;
+	margin-bottom: 0.4em;
+	box-shadow: -5px -5px 8px #ffffff7a, 5px 5px 8px #a9a9aa7a;
+	overflow: hidden;
+}
+
+.card a {	
+	cursor: pointer;
+}
+.card a:active {
+	box-shadow: inset -5px -5px 8px #ffffff7a, inset 5px 5px 8px #a9a9aa7a;
+}
+
+
+.card .info {
+	text-align: center;
+	margin-top: 0.1em;
+	background-clip: border-box;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: black;
+}
+
+.card .info>span {
+	font-weight: normal;
+	font-size: 1.2em;
+}
+/*Card---------------------*/
+
+
+/****クーポンページ****/
+
+.couponview{
+	width: auto;
+	height: 440px;
+	
+}
+
+/* クーポンコンテナ */
+.coupon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    overflow: hidden;
+}
+
+
+/* 最初に表示するイメージ文 */
+.intro-message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    z-index: 1;
+}
+
+/* 非表示する */
+.hidden {
+    display: none;
+}
+
+/* クーポンの外観 */
+.coupon {
+    width: 296px;
+    height:440px;
+    perspective: 1000px;
+    transition: transform 0.6s, filter 0.6s;
+    opacity: 0;
+    transform: scale(0);
+    animation: expand 1s forwards;
+    margin: 0 20px; 
+}
+
+
+
+.coupon:nth-child(1) { animation-delay: 0.2s; }
+.coupon:nth-child(2) { animation-delay: 0.4s; }
+.coupon:nth-child(3) { animation-delay: 0.6s; }
+.coupon:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes expand {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.coupon.selected {
+    transform: scale(1.2);
+}
+
+/* 選ばないクーポンはグレーにする */
+.coupon.deselected {
+    filter: grayscale(100%);
+    pointer-events: none; /* 禁用点击事件 */
+}
+
+.coupon.disabled {
+    pointer-events: none; /* 禁用点击事件 */
+}
+
+/* Flip動画 */
+.coupon-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* 回転したクーポン */
+.coupon.flipped .coupon-inner {
+    transform: rotateY(180deg);
+}
+
+.coupon-front, .coupon-back {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.coupon-front {
+    background-color: #007BFF;
+}
+
+.coupon-back {
+    background-color: rgb(255, 128, 0);
+    transform: rotateY(180deg);
+}
+
+/* クーポンカードの背景図 */
+.card-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+/****クーポンページ****/
+/****誕生日ページ****/
+
+/****会員登録ページ****/
+.registerview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerview form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registerview table {
+    margin: 0 auto; /* テーブルを水平方向に中央揃え */
+    border-collapse: collapse; /* テーブルのセル間の隙間をなくす */
+    max-width: 600px; /* 最大幅を設定（必要に応じて調整） */
+    border: 1px solid #ccc; /* テーブル全体の外枠のボーダー */
+}
+
+.registerview th, .registerview td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc; /* 各セルのボーダー */
+    vertical-align: middle;
+}
+
+/* テーブルヘッダーのスタイル */
+.registerview th {
+    background-color: #f2f2f2; /* ヘッダーの背景色 */
+    color: #333; /* ヘッダーの文字色 */
+    font-weight: bold; /* ヘッダーの文字を太字に */
+}
+/****会員登録ページ****/
+
+
+/* 誕生日メッセージ */
+.birthdaymsg{
+  align-items: center;
+  background-color: rgb(251, 244, 213);
+  gap: 10px;
+  border-radius: 30px;
+  box-shadow: 7px 6px 12px 1px #dfdfdf, -9px -8px 60px #ffffff;
+	
+}
+#birthday-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    font-size: 50px;
+}
+
+#bcard  {
+    width: 171px;
+    height:253px;
+    perspective: 1000px;
+    transition: transform 0.6s, filter 0.6s;
+    opacity: 0;
+    transform: scale(0);
+    animation: expand 1s forwards;
+    margin: 0 20px;
+    
+}
+
+.outro-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff6347;
+    text-align: center;
+    z-index: 1;
+}
+
+/****誕生日ページ****/
+
+/****会員登録ページ****/
+.registerview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerview form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registerview table {
+    margin: 0 auto; /* テーブルを水平方向に中央揃え */
+    border-collapse: collapse; /* テーブルのセル間の隙間をなくす */
+    max-width: 600px; /* 最大幅を設定（必要に応じて調整） */
+    border: 1px solid #ccc; /* テーブル全体の外枠のボーダー */
+}
+
+.registerview th, .registerview td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc; /* 各セルのボーダー */
+    vertical-align: middle;
+}
+
+/* テーブルヘッダーのスタイル */
+.registerview th {
+    background-color: #f2f2f2; /* ヘッダーの背景色 */
+    color: #333; /* ヘッダーの文字色 */
+    font-weight: bold; /* ヘッダーの文字を太字に */
+}
+/****会員登録ページ****/
+/****会計確定ページ****/
+
+.finishview {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* 最大幅を指定して画面が広すぎないように調整 */
+    margin: 30px auto; /* コンテナを中央に配置 */
+}
+
+/* finishviewのテーブル */
+.finishview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* テーブルのセルとヘッダーのスタイル */
+.finishview th, .finishview td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+}
+
+/* テーブルヘッダーのスタイル */
+.finishview th {
+    background-color: #f8f8f8;
+    color: #555;
+    font-weight: bold;
+}
+
+/* テーブルの最終行 */
+.finishview tr:last-child td {
+    border-bottom: none;
+}
+
+/* 最後のセル（割引価格など） */
+.finishview td {
+    color: #555;
+}
+
+/* finishviewのテーブルにホバー効果を追加（任意） */
+.finishview tr:hover {
+    background-color: #f9f9f9; /* マウスオーバー時に背景色を変更 */
+}
+
+
+/****会計確定ページ****/
+
+
+
+
+
+/* すべてのページに適用 - フッター - */
+.footer {
+	background-image: url(../images/footer-bg.png);
+	background-repeat: no-repeat;
+	padding: 5px 15px 20px 15px;
+	font-size: 12px;
+	color: #3f5170;
+}
