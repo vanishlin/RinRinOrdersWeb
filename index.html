@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>りんりんOrders</title>
+</head>
+<style>
+    /*背景の動画*/
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.background-row {
+	display: flex;
+	position: relative;
+	white-space: nowrap; 
+	animation: moveBackground 10s linear infinite;
+}
+
+.background-row:nth-child(odd) {
+	animation-direction: reverse;
+}
+
+.background-image {
+	width: 220px;
+	object-fit: contain;
+}
+
+@keyframes moveBackground {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+</style>
+<body>
+<div class="background" id="background" style="z-index: -1;"></div>
+
+<script>
+    const imageCount = 20; 
+    const rowCount = 20;
+    const images = ["images/bananapafe.png",
+"images/cheesecake.png",
+"images/chococake.png",
+"images/gikura.png",
+"images/gnegitoro.png",
+"images/guni.png",
+"images/miru.png",
+"images/mkappa.png",
+"images/mmagutaku.png",
+"images/mtekka.png",
+"images/nebi.png",
+"images/nengawa.png",
+"images/nika.png",
+"images/nmaguro.png",
+"images/nsamon.png",
+"images/ntamago.png",
+"images/pafe.png",
+"images/potato.png",
+"images/ssarada.png"]; 
+    
+    const background = document.getElementById('background');
+    for (let i = 0; i < rowCount; i++) {
+        const row = document.createElement('div');
+        row.classList.add('background-row');
+        background.appendChild(row);
+    
+        const totalImages = imageCount * 2; 
+        for (let j = 0; j < totalImages; j++) {
+            const img = document.createElement('img');
+            img.src = images[Math.floor(Math.random() * images.length)];
+            img.classList.add('background-image');
+            row.appendChild(img);
+        }
+    }
+    </script>
+</body>
+
+</html>
